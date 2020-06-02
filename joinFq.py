@@ -46,7 +46,7 @@ def write_joined(ffile, rfile, joined_file, length=None):
     rreads = SeqIO.parse(rfile, 'fastq')
 
     with open(joined_file, 'w') as outfile:
-        for fread, rread in itertools.izip(freads, rreads):
+        for fread, rread in zip(freads, rreads):
             outfile.write(join_seqs(fread, rread, length=length).format('fastq'))
 
 
